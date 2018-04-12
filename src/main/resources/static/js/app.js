@@ -47,8 +47,9 @@ $(function(){
         self.saveNewTask = function() {
 
             // Read data from the form observables, format as JSON
+            console.log(self.newTaskText())
             let data = ko.toJSON({ text: self.newTaskText(), urgent: self.newTaskIsUrgent() || false, completed: false});
-
+            console.log(data)
             $.ajax({
                 type: 'POST',
                 url: 'add',         // This is the /add route in the TaskAPIController
